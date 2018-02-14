@@ -1,5 +1,5 @@
 import os
-
+import json
 import requests
 
 from stream_trigger import error
@@ -54,7 +54,7 @@ class PhilipsHueBulb(BaseBulb):
             self.__request_with_error_check(method="PUT",
                                             url="http://{}/api/{}/lights/{}/state".format(
                                                 self._bridge_ip, self._username, self.name),
-                                            data={"on": is_on}
+                                            data=json.dumps({"on": is_on})
                                             )
         else:
             raise error.InvalidLightError("Could not find light: {}".format(self.name))

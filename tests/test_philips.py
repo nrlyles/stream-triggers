@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import json
 import mock
 import pytest
 from stream_trigger.bulb.philipsbulb import PhilipsHueBulb
@@ -109,7 +110,7 @@ def test_set_off(mock_requests, mock_environ):
     mock_requests.request.assert_has_calls([mock.call(method="GET", url="http://10.10.10.10/api/username/lights"),
                                             mock.call(method="PUT",
                                                       url="http://10.10.10.10/api/username/lights/1/state",
-                                                      data={"on": False})
+                                                      data=json.dumps({"on": False}))
                                             ])
 
 
@@ -142,7 +143,7 @@ def test_set_off(mock_requests, mock_environ):
     mock_requests.request.assert_has_calls([mock.call(method="GET", url="http://10.10.10.10/api/username/lights"),
                                             mock.call(method="PUT",
                                                       url="http://10.10.10.10/api/username/lights/1/state",
-                                                      data={"on": True})
+                                                      data=json.dumps({"on": True}))
                                             ])
 
 
