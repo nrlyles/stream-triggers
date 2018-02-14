@@ -12,11 +12,11 @@ __license__ = "none"
 
 @pytest.fixture()
 def bulb():
-    return BaseBulb()
+    return BaseBulb("test")
 
 
 def test_instantiate(bulb):
-    test_bulb = bulb
+    pass
 
 
 def test_set_off(bulb):

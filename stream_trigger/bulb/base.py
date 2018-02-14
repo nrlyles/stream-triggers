@@ -1,6 +1,9 @@
 
 class BaseBulb():
 
+    def __init__(self, name):
+        self.name = name
+
     def __return_not_implemented(self, func):
         raise NotImplementedError('subclasses must override {}'.format(func.__name__))
 
