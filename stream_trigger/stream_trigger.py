@@ -10,7 +10,7 @@ bulb1name = get_env_var("MAIN_LIGHT", "1")
 bulb2name = get_env_var("COLOR_LIGHT", "2")
 username = get_env_var("USERNAME", "stream_trigger_user")
 website = get_env_var("WEBSITE", "twitch.tv")
-api_key = get_env_var("STREAMLABS_API_KEY")
+api_key = get_env_var("STREAMLABS_API_KEY", "replace_this")
 streamlabs_hostname = get_env_var("STREAMLABS_HOSTNAME", "localhost")
 min_bits = get_env_var("MIN_BITS", 100)
 
