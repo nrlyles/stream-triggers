@@ -2,7 +2,7 @@ import os
 import json
 import requests
 
-from stream_trigger import error
+from stream_trigger import error, util
 from base import BaseBulb
 
 
@@ -10,8 +10,8 @@ class PhilipsHueBulb(BaseBulb):
 
     def __init__(self, name):
         BaseBulb.__init__(self, name)
-        self._bridge_ip = self.__get_env_var("HUE_BRIDGE_HOSTNAME")
-        self._username = self.__get_env_var("HUE_BRIDGE_USERNAME")
+        self._bridge_ip = util.get_env_var("HUE_BRIDGE_HOSTNAME")
+        self._username = util.get_env_var("HUE_BRIDGE_USERNAME")
 
     def set_off(self):
         self.__set_state(False)
@@ -21,14 +21,6 @@ class PhilipsHueBulb(BaseBulb):
 
     def set_color(self, color):
         raise error.UnsupportedAction("Action set_color is not allowed for this light type.")
-
-    def __get_env_var(self, env_var):
-        result = os.environ.get(env_var)
-        if result is None:
-            raise error.MissingEnvironmentValue("{} environment variable must be set.".format(env_var))
-        if not result:
-            raise error.InvalidHostnameError()
-        return result
 
     def _check_error(self, json_response):
         desc_to_except = {
@@ -52,9 +44,9 @@ class PhilipsHueBulb(BaseBulb):
     def __set_state(self, is_on):
         if self._is_found():
             self._request_with_error_check(method="PUT",
-                                            url="http://{}/api/{}/lights/{}/state".format(
+                                           url="http://{}/api/{}/lights/{}/state".format(
                                                 self._bridge_ip, self._username, self.name),
-                                            data=json.dumps({"on": is_on})
-                                            )
+                                           data=json.dumps({"on": is_on})
+                                           )
         else:
             raise error.InvalidLightError("Could not find light: {}".format(self.name))

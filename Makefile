@@ -1,4 +1,3 @@
-TEST_PATH=./
 
 .PHONY: requirements
 requirements:
@@ -7,3 +6,7 @@ requirements:
 .PHONY: test
 test:
 	python setup.py test
+
+.PHONY: dist
+dist:
+	python setup.py sdist

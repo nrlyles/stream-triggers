@@ -25,7 +25,7 @@ class MockResponse:
 def test_instantiate(mock_environ):
     mock_environ.get.side_effect = ["10.10.10.10", "some_username"]
     test_bulb = PhilipsHueBulb("test")
-    mock_environ.get.assert_has_calls([mock.call("HUE_BRIDGE_HOSTNAME"), mock.call("HUE_BRIDGE_USERNAME")])
+    mock_environ.get.assert_has_calls([mock.call("HUE_BRIDGE_HOSTNAME", None), mock.call("HUE_BRIDGE_USERNAME", None)])
     assert test_bulb._bridge_ip == "10.10.10.10"
     assert test_bulb._username == "some_username"
 
