@@ -1,0 +1,13 @@
+version: '3'
+services: 
+    stream_trigger:
+        build: .
+        environment:
+          - MAIN_LIGHT=1
+          - COLOR_LIGHT=2
+          - USERNAME=stream_trigger_username
+          - WEBSITE=twitch.tv
+          - STREAMLABS_API_KEY=some_api_key
+          - STREAMLABS_HOSTNAME=localhost
+          - HUE_BRIDGE_HOSTNAME=10.10.10.10
+          - HUE_BRIDGE_USERNAME=some_username

@@ -42,3 +42,5 @@ docs/_build/*
 cover/*
 MANIFEST
 /venv
+
+docker-compose.yml

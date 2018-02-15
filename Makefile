@@ -10,3 +10,9 @@ test:
 .PHONY: dist
 dist:
 	python setup.py sdist
+
+.PHYONY: clean
+clean:
+	rm -rf build
+	rm -rf dist
+	find . -name "*.pyc" -exec rm -f {} \;
