@@ -28,17 +28,25 @@ For ease of deployment, Stream Trigger uses Docker. And to make it even easier t
 Docker Compose configuration. The main requirements are that you fill out the Environment Variables. I have included
 a list of these variables below with a description.
 
-========================= =============================================================================== =======================
-Environment Variable Name Description                                                                     Default
-========================= =============================================================================== =======================
-MAIN_LIGHT                The main light that will be turned off when the light show begins               1
-COLOR_LIGHT               The light that will be used for the light show.                                 2
-USERNAME                  Specify a username to pass to Streamlabs                                        stream_trigger_username.
-WEBSITE                   Your website. (For use by Streamlabs)
-STREAMLABS_API_KEY        API Key for Streamlabs. Please see Streamlabs Docs for more information.
-STREAMLABS_HOSTNAME       The IP or hostname of the PC/server running Streamlabs.                         localhost
-HUE_BRIDGE_HOSTNAME       The IP or hostname of the Hue Bridge. See Philips Hue Docs to discover this.
-HUE_BRIDGE_USERNAME       The username provided by the Hue Bridge. See Philips Hue Docs for retrieval.
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| Environment Variable   | Description                                                                   | Default                |
++========================+===============================================================================+========================+
+| MAIN_LIGHT             | The main light that will be turned off when the light show begins             | 1                      |
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| COLOR_LIGHT            | The light that will be used for the light show.                               | 2                      |
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| USERNAME               | Specify a username to pass to Streamlabs                                      | stream_trigger_username|
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| WEBSITE                | Your website. (For use by Streamlabs)                                         |                        |
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| STREAMLABS_API_KEY     | API Key for Streamlabs. Please see Streamlabs Docs for more information.      |                        |
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| STREAMLABS_HOSTNAME    | The IP or hostname of the PC/server running Streamlabs.                       | localhost              |
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| HUE_BRIDGE_HOSTNAME    | The IP or hostname of the Hue Bridge. See Philips Hue Docs to discover this.  |                        |
++------------------------+-------------------------------------------------------------------------------+------------------------+
+| HUE_BRIDGE_USERNAME    | The username provided by the Hue Bridge. See Philips Hue Docs for retrieval.  |                        |
++------------------------+-------------------------------------------------------------------------------+------------------------+
 
 Once you have configured your docker-compose.yml file simply run::
 
